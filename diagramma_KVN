@@ -1,0 +1,28 @@
+create table komanda(
+  id serial primary key,
+  nazvanie varchar(50),
+  vuz varchar(100),
+  gorod varchar(50) not null
+);
+
+create table igra(
+                        id serial primary key,
+                        nazvanie varchar(50) not null,
+                        liga int,
+                        data date,
+                        mesto varchar(50)
+
+);
+
+
+create table rezultati(
+                        id serial primary key,
+                        mesto int,
+                        balli bigint,
+                        vixod_v_sled_etap varchar(20) not null,
+                        komanda_id bigint,
+                        igra_id bigint,
+                        foreign key (komanda_id) references komanda(id),
+                        foreign key (igra_id) references igra(id)
+);
+
