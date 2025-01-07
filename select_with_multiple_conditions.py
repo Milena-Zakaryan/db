@@ -1,4 +1,4 @@
---SELECT * FROM komanda WHERE gorod = 'City A' AND vuz = 'University X';
+#SELECT * FROM komanda WHERE gorod = 'City A' AND vuz = 'University X';
 
 @app.route('/teams/filter', methods=['GET'])
 def filter_teams():
