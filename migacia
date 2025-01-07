@@ -1,0 +1,10 @@
+ALTER TABLE komanda
+ADD COLUMN osnovanie_date DATE;
+
+ALTER TABLE igra
+ADD COLUMN opisanie TEXT;
+
+
+CREATE INDEX idx_komanda_gorod ON komanda(gorod);
+
+CREATE INDEX idx_igra_data ON igra(data);
