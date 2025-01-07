@@ -1,6 +1,6 @@
---UPDATE rezultati
---SET balli = balli + 10
---WHERE mesto = 1 AND vixod_v_sled_etap = 'yes';
+#UPDATE rezultati
+#SET balli = balli + 10
+#WHERE mesto = 1 AND vixod_v_sled_etap = 'yes';
 
 
 @app.route('/results/update-scores', methods=['PUT'])
