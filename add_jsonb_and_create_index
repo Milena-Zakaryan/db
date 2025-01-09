@@ -1,0 +1,19 @@
+ALTER TABLE komanda
+ADD COLUMN dop_info JSONB;
+
+UPDATE komanda
+SET dop_info = '{"history": "Founded in 2004", "achievements": ["Championship 2009", "League Winner 2015"]}'
+WHERE nazvanie = 'Team A';
+
+UPDATE komanda
+SET dop_info = '{"history": "Established in 2009", "achievements": ["League Winner 2018"]}'
+WHERE nazvanie = 'Team B';
+
+CREATE EXTENSION IF NOT EXISTS pg_trgm;
+
+CREATE INDEX idx_komanda_dop_info_trgm ON komanda USING gin (dop_info jsonb_path_ops);
+
+SELECT * 
+FROM komanda
+WHERE dop_info::text ~* 'Founded';
+
